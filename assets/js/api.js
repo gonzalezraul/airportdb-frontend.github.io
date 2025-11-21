@@ -2,7 +2,7 @@
 
 // ⚠️ AJUSTA ESTE PUERTO AL DE TU BACKEND
 // Si run.py usa port=5002:
-const API_BASE = "https://aiportdb-backend.onrender.com";
+const API_BASE = "https://aiportdb-backend.onrender.com/api";
 // Si cambias el puerto en run.py, cámbialo también aquí.
 
 // Helper genérico para GET
@@ -78,3 +78,4 @@ async function apiDelete(path) {
 
   return res.json();
 }
+
