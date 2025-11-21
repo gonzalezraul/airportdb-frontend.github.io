@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reservas – AirportDB</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/api.js" defer></script>
+    <script src="assets/js/reservations.js" defer></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>Gestión de reservas</h1>
+        <nav>
+          <a href="index.html">Dashboard</a>
+          <a href="flights.html">Vuelos</a>
+          <a href="reservations.html">Reservas</a>
+        </nav>
+      </header>
+
+      <!-- Bloque superior con el formulario -->
+      <section class="card form-card">
+        <h2 class="section-title">Nueva / editar reserva</h2>
+
+        <form id="reservation-form" class="form-grid">
+          <!-- Campo oculto para saber si estamos editando -->
+          <input type="hidden" id="reservation_id" />
+
+          <div class="form-field">
+            <label for="flight_id">ID de vuelo</label>
+            <input
+              type="number"
+              id="flight_id"
+              placeholder="Ej: 12345"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="amount">Importe (€)</label>
+            <input
+              type="number"
+              step="0.01"
+              id="amount"
+              placeholder="Ej: 99.99"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="customer_name">Nombre del cliente (opcional)</label>
+            <input
+              type="text"
+              id="customer_name"
+              placeholder="Ej: Raúl González"
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="status">Estado</label>
+            <select id="status">
+              <option value="confirmed">Confirmada</option>
+              <option value="cancelled">Cancelada</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn">Guardar reserva</button>
+            <button type="button" id="reset-btn" class="btn btn-secondary">
+              Limpiar formulario
+            </button>
+          </div>
+        </form>
+
+        <p class="field-help-global">
+          Introduce el ID de un vuelo existente (míralos en la página de
+          <strong>Vuelos</strong>.
+        </p>
+      </section>
+
+      <!-- Tabla de reservas -->
+      <section class="table-wrapper">
+        <h2>Listado de reservas</h2>
+        <table id="reservations-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Vuelo (ID)</th>
+              <th>Importe</th>
+              <th>Fecha reserva</th>
+              <th>Estado</th>
+              <th>Cliente</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filas generadas por reservations.js -->
+          </tbody>
+        </table>
+        <p id="reservations-loading" class="table-helper">
+          Cargando reservas...
+        </p>
+        <p id="reservations-error" class="table-helper error" hidden>
+          Error al cargar las reservas.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

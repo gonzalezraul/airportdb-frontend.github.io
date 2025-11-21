@@ -1,0 +1,239 @@
+:root {
+  --bg: #0f172a;
+  --bg-card: #1e293b;
+  --accent: #38bdf8;
+  --accent-soft: #0ea5e9;
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+  --danger: #f97373;
+  --border: #334155;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: var(--text);
+}
+
+/* Layout general */
+
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 1rem;
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* Cards */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.8);
+}
+
+.card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.card-value {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* Tablas */
+
+.table-wrapper {
+  margin-top: 1.5rem;
+  background: var(--bg-card);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.8);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead {
+  background: rgba(148, 163, 184, 0.12);
+}
+
+th,
+td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+}
+
+tbody tr:hover {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+/* Tarjeta/formulario (reservas) */
+
+.form-card {
+  margin-top: 1.5rem;
+  background: var(--bg-card);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.8);
+}
+
+.section-title {
+  margin: 0 0 0.75rem;
+}
+
+/* Grid del formulario de reservas:
+   4 columnas → ID vuelo, Importe, Cliente, Estado */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem 1.2rem;
+  align-items: flex-end;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: #020617;
+  color: var(--text);
+}
+
+/* Botones */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+  color: #0b1220;
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.45);
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+.btn-small {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #fb7185, #ef4444);
+  color: #fee2e2;
+  box-shadow: 0 10px 25px rgba(248, 113, 113, 0.4);
+}
+
+/* Botón "secundario" (limpiar formulario) */
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+/* Contenedor de botones del formulario
+   (más separación entre ellos) */
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem; /* separación entre Guardar y Limpiar */
+  margin-top: 0.5rem;
+}
+
+.field-help-global {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Mensajes / estados */
+
+.error-text {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #fecaca;
+}
+
+.table-helper {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.table-helper.error {
+  color: #fecaca;
+}
+
+.loading {
+  opacity: 0.6;
+}

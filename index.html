@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard AirportDB</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Chart.js para la gráfica -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js"
+      defer
+    ></script>
+    <script src="assets/js/api.js" defer></script>
+    <script src="assets/js/dashboard.js" defer></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>Dashboard – AirportDB</h1>
+        <nav>
+          <a href="index.html">Dashboard</a>
+          <a href="flights.html">Vuelos</a>
+          <a href="reservations.html">Reservas</a>
+        </nav>
+      </header>
+
+      <!-- Tarjetas -->
+      <section id="stats" class="cards">
+        <article class="card">
+          <h2>Total de reservas</h2>
+          <div id="total-reservations" class="card-value">–</div>
+        </article>
+        <article class="card">
+          <h2>Importe total</h2>
+          <div id="total-amount" class="card-value">–</div>
+        </article>
+        <article class="card">
+          <h2>Vuelos con reservas</h2>
+          <div id="flights-with-res" class="card-value">–</div>
+        </article>
+      </section>
+
+      <p id="dashboard-error" class="error-text"></p>
+
+      <!-- Gráfica -->
+      <section class="table-wrapper" style="margin-top: 2rem">
+        <h2>Reservas por aerolínea</h2>
+        <canvas id="airlineChart" height="120"></canvas>
+      </section>
+    </div>
+  </body>
+</html>
